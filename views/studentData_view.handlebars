@@ -1,0 +1,22 @@
+<section id="studentData_view" class="container">
+    <h1>Meow</h1>
+
+    {{#each model}}
+      <div class="student_block">
+      <h3>{{title}}</h3>
+      {{!-- <pre>{{FName}}    {{LName}}</pre> --}}
+      <p>{{FName}}&emsp;{{LName}}</p>
+      <ul>
+        <li>@-@: {{DistrictName}}</li>
+        {{!-- <li><a href="mailto:{{contact_email}}" class="btn btn-reverse">Apply Now</a></li> --}}
+      </ul>
+      <div class="tech">
+        <small>ID: <span>{{StudentID}}</span></small>
+      </div>
+      <input type="submit" value="Add" class="btn btn-reverse">
+    </div>
+    {{else}}
+      <p>No data available</p>
+    {{/each}}
+    
+  </section>

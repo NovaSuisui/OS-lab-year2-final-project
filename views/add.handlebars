@@ -1,0 +1,47 @@
+<section id="add" class="container">
+    <div class="form-wrap">
+      <h1>Add A Student Data</h1>
+      <p>meow</p>
+      {{#each errors}}
+        <div class="error">
+          <p>{{text}}</p>
+        </div>
+      {{/each}}
+      <form action="/StudentData/add" method="POST">
+        <div class="input-group">
+          <label for="StudentID">Input StudentID</label>
+          <input type="text" name="StudentID" id="StudentID" class="input-box" placeholder="00000000"
+            maxlength="100" required value={{StudentID}}>
+        </div>
+        <div class="input-group">
+          <label for="FName">Input First Name</label>
+          <input type="text" name="FName" id="FName" class="input-box" placeholder="atk"
+          maxlength="100" value={{FName}}>
+        </div>
+        <div class="input-group">
+          <label for="LName">Input Last Name</label>
+          <input type="text" name="LName" id="LName" class="input-box" placeholder="def"
+          maxlength="100" value={{LName}}>
+        </div>
+        <div class="input-group">
+          <label for="DistrictCode">Input District Code</label>
+          <input type="text" name="DistrictCode" id="DistrictCode" class="input-box" placeholder="star"
+          maxlength="100" value={{DistrictCode}}>
+        </div>
+        {{!-- <div class="input-group">
+          <label for="budget">Budget (Leave blank for unknown)</label>
+          <input type="number" name="budget" id="budget" class="input-box" placeholder="eg. 500, 5000, 10000" value={{budget}}>
+        </div>
+        <div class="input-group">
+          <label for="description">Gig Description</label>
+          <textarea name="description" id="description" class="input-box" placeholder="Describe the details of the gig"
+            rows="10">{{description}}</textarea>
+        </div>
+        <div class="input-group">
+          <label for="budget">Contact Email</label>
+          <input type="email" name="contact_email" id="contactemail" class="input-box" placeholder="Enter an email" value={{contact_email}}>
+        </div> --}}
+        <input type="submit" value="Add Data" class="btn btn-reverse">
+      </form>
+    </div>
+  </section>
