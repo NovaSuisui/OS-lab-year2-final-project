@@ -85,7 +85,13 @@ router.post('/add', (req, res) => {
 //Search
 router.get('/search', (req, res) => {
     const { term } = req.query;
-    _model_student.findAll({ where: { StudentID: { [Op.like]: '%' + term + '%' } } })
+    _model_student.findAll({
+        where: { [Op.or]:[
+            { StudentID: { [Op.like]: '%' + term + '%' } },
+            { FName: { [Op.like]: '%' + term + '%' } },
+            { LName: { [Op.like]: '%' + term + '%' } }]
+        }
+    })
     .then(model => res.render('studentData_view', { model }))
     .catch(err => console.log(err));
 });
