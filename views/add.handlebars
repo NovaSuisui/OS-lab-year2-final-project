@@ -8,6 +8,7 @@
         </div>
       {{/each}}
       <form action="/StudentData/add" method="POST">
+        <p>{{FName}}&emsp;{{LName}}</p>
         <div class="input-group">
           <label for="StudentID">Input StudentID</label>
           <input type="text" name="StudentID" id="StudentID" class="input-box" placeholder="00000000"
@@ -24,9 +25,9 @@
           maxlength="100" value={{LName}}>
         </div>
         <div class="input-group">
-          <label for="DistrictCode">Input District Code</label>
-          <input type="text" name="DistrictCode" id="DistrictCode" class="input-box" placeholder="star"
-          maxlength="100" value={{DistrictCode}}>
+          <label for="District">Input District Code</label>
+          <input type="text" name="District" id="District" class="input-box" placeholder="star"
+          maxlength="100" value={{District}}>
         </div>
         {{!-- <div class="input-group">
           <label for="budget">Budget (Leave blank for unknown)</label>

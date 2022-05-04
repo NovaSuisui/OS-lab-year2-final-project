@@ -4,7 +4,7 @@ const res = require('express/lib/response');
 const router = express.Router();
 const db = require('../config/database');
 const _model_student = require('../models/model_student');
-const _model_district = require('../models/model_district');
+//const _model_district = require('../models/model_district');
 
 const Sequelize = require('sequelize');
 const { where } = require('sequelize');
@@ -12,12 +12,7 @@ const Op = Sequelize.Op;
 
 //get table
 router.get('/', (req, res) => 
-    _model_student.findAll({
-        include: {
-            model: _model_district,
-            //where: { DistrictCode: { [Op.like]: _model_student.SetDistrictDistrictCode } }
-        }
-    })
+    _model_student.findAll()
     .then(model => {
         /*console.log(model);
         res.sendStatus(200);*/
@@ -61,7 +56,7 @@ router.post('/add', (req, res) => {
             StudentID,
             FName,
             LName,
-            DistrictCode
+            District
         });
     }
     else{
@@ -72,7 +67,7 @@ router.post('/add', (req, res) => {
             StudentID,
             FName,
             LName,
-            DistrictCode
+            District
         })
     
         .then(temp => res.redirect('/studentData'))
@@ -81,7 +76,7 @@ router.post('/add', (req, res) => {
             StudentID,
             FName,
             LName,
-            DistrictCode}
+            District}
         /*console.log('Error : '+err)*/));
     }
 
@@ -93,6 +88,29 @@ router.get('/search', (req, res) => {
     _model_student.findAll({ where: { StudentID: { [Op.like]: '%' + term + '%' } } })
     .then(model => res.render('studentData_view', { model }))
     .catch(err => console.log(err));
+});
+
+//Update
+//router.get('/update', (req, res) => res.render('update'));
+
+//Update post table
+router.post('/update', (req, res) => {
+
+    let { StudentID, FName, LName, District } = req.body;
+
+    /*if(!SetDistrictDistrictCode)
+        SetDistrictDistrictCode = NULL;*/
+
+    //UPDATE
+    _model_student.upsert({
+        StudentID,
+        FName,
+        LName,
+        District,
+    })
+    .then(temp => res.redirect('/studentData'))
+    .catch(err => res.render(console.log('Error : '+err)));
+
 });
 
 module.exports = router;

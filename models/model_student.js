@@ -12,23 +12,23 @@ const model_student = db.define('setStudent', {
     LName: {
         type: Sequelize.STRING
     },
-    /*DistrictCode: {
-        type: Sequelize.STRING
-    },*/
-})
-
-const model_district = db.define('setDistrict', {
-    DistrictCode: {
-        type: Sequelize.STRING,
-        primaryKey: true
-    },
-    DistrictName: {
+    District: {
         type: Sequelize.STRING
     },
 })
 
-model_district.hasMany(model_student);
-model_student.belongsTo(model_district);
+// const model_district = db.define('setDistrict', {
+//     DistrictCode: {
+//         type: Sequelize.STRING,
+//         primaryKey: true
+//     },
+//     DistrictName: {
+//         type: Sequelize.STRING
+//     },
+// })
+
+// model_district.hasMany(model_student);
+// model_student.belongsTo(model_district);
 
 module.exports = model_student;
 //module.exports = model_district;

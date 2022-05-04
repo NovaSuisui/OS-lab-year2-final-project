@@ -4,16 +4,29 @@
     {{#each model}}
       <div class="student_block">
       <h3>{{title}}</h3>
-      {{!-- <pre>{{FName}}    {{LName}}</pre> --}}
-      <p>{{FName}}&emsp;{{LName}}</p>
-      <ul>
-        <li>@-@: {{DistrictName}}</li>
-        {{!-- <li><a href="mailto:{{contact_email}}" class="btn btn-reverse">Apply Now</a></li> --}}
-      </ul>
-      <div class="tech">
-        <small>ID: <span>{{StudentID}}</span></small>
-      </div>
-      <input type="submit" value="Add" class="btn btn-reverse">
+        <form action="/StudentData/update" method="POST">
+          <div class="input-group">
+            <label for="StudentID">StudentID</label>
+            <input type="text" name="StudentID" id="StudentID" class="input-box" placeholder="00000000"
+              maxlength="100" required value={{StudentID}}>
+          </div>
+          <div class="input-group">
+            <label for="FName">First Name</label>
+            <input type="text" name="FName" id="FName" class="input-box" placeholder="atk"
+            maxlength="100" value={{FName}}>
+          </div>
+          <div class="input-group">
+            <label for="LName">Last Name</label>
+            <input type="text" name="LName" id="LName" class="input-box" placeholder="def"
+            maxlength="100" value={{LName}}>
+          </div>
+          <div class="input-group">
+            <label for="District">District</label>
+            <input type="text" name="District" id="District" class="input-box" placeholder="NULL"
+            maxlength="100" value={{District}}>
+          </div>
+          <input type="submit" value="Update" class="btn btn-reverse">
+        </form>
     </div>
     {{else}}
       <p>No data available</p>

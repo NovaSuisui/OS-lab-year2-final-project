@@ -5,6 +5,7 @@ const path = require('path');
 
 //Database
 const db = require('./config/database');
+//const db = require('./config/database_local');
 const { publicDecrypt } = require('crypto');
 db.authenticate()
     .then(() => console.log('Database connect...'))
