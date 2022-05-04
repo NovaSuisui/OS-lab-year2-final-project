@@ -35,7 +35,7 @@ router.post('/add', (req, res) => {
     //     DistrictCode: '0000',
     // }
 
-    let { StudentID, FName, LName, DistrictCode } = req.body/*data*/;
+    let { StudentID, FName, LName, District } = req.body/*data*/;
     let errors = [];
 
     //validate fields
